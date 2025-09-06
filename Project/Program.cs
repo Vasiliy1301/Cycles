@@ -19,4 +19,20 @@ public class Program
     Console.WriteLine($"The total salary is {TotalSalary} dollars, the total number of employees is {NumberOfEmployees}," +
                       $"the average salary per employee is {TotalSalary / NumberOfEmployees} dollars.");
     #endregion
+    #region Task 7
+    Console.WriteLine("Enter number: ");
+    int Number = Convert.ToInt32(Console.ReadLine());
+    int Result = 0;
+
+        if (Number >= 1 && Number <= 10)
+    {
+        for (int i = 1; i <= 10; i++)
+        {
+            Result = Number * i;
+            Console.WriteLine($"{Number} * {i} = {Number * i}");
+        }
+    }
+    else
+    Console.WriteLine("Enter a number from 1 to 10");
+    #endregion
 }
