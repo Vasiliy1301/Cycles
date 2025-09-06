@@ -34,6 +34,34 @@ public class Program
     #endregion
     
     
+    #region Task 5
+    int FibonacciNumber1 = 0;
+    int FibonacciNumber2 = 1;
+
+    Console.Write("Enter how many times to calculate the Fibonacci number: ");
+    int Number = Convert.ToInt32(Console.ReadLine());
+
+        if (Number > 1 && Number <= 47)
+    {
+        Console.Write($"{FibonacciNumber1} {FibonacciNumber2} ");
+    
+        for (int i = 2; i < Number; i++)
+        {
+            int Next = FibonacciNumber1 + FibonacciNumber2;
+        
+            Console.Write($"{Next} ");
+
+            FibonacciNumber1 = FibonacciNumber2;
+            FibonacciNumber2 = Next;
+        }
+    }
+    else if (Number == 1)
+    Console.WriteLine(FibonacciNumber1);
+    else
+    Console.WriteLine("Enter a valid value between 1 and 47");
+    #endregion
+    
+    
     #region Task 6
     int Hours = 0;
     int TotalHours = 0;
