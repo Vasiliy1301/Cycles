@@ -19,6 +19,35 @@ public class Program
     Console.WriteLine($"The total salary is {TotalSalary} dollars, the total number of employees is {NumberOfEmployees}," +
                       $"the average salary per employee is {TotalSalary / NumberOfEmployees} dollars.");
     #endregion
+    
+    #region Task 6
+    int Hours = 0;
+    int TotalHours = 0;
+    double StartingPrice = 10;
+    double TotalAmount = 0;
+
+    Console.Write($"You start working, today your starting rate per hour of work is {StartingPrice}$, " +
+    $"for each subsequent hour you will receive one dollar more than the starting rate.\n");
+
+    for (int i = 0; i < 3; i++)
+    {
+        Console.WriteLine("Enter how many hours you worked today: ");
+        Hours = Convert.ToInt32(Console.ReadLine());
+    
+        for (int j = 0; j < Hours; j++)
+        {
+            TotalAmount += StartingPrice;
+            StartingPrice++;
+        }
+    
+        TotalHours += Hours;
+
+        Console.Write($"You have worked {Hours} hours today and earned {TotalAmount}$, your bet is now {StartingPrice}$.\n");
+    }
+
+    Console.Write($"\nYou worked {TotalHours} hours and earned {TotalAmount}$ today.");
+    #endregion
+    
     #region Task 7
     Console.WriteLine("Enter number: ");
     int Number = Convert.ToInt32(Console.ReadLine());
