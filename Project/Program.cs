@@ -20,6 +20,20 @@ public class Program
                       $"the average salary per employee is {TotalSalary / NumberOfEmployees} dollars.");
     #endregion
     
+    
+    #region Task 2
+    Console.WriteLine("Enter the number of stars: ");
+    int Stars = Convert.ToInt32(Console.ReadLine());
+
+    Console.WriteLine("Result: ");
+
+    for (int i = 1; i <= Stars; i++)
+    {
+        Console.WriteLine(new string('*', i));
+    }
+    #endregion
+    
+    
     #region Task 6
     int Hours = 0;
     int TotalHours = 0;
@@ -47,6 +61,7 @@ public class Program
 
     Console.Write($"\nYou worked {TotalHours} hours and earned {TotalAmount}$ today.");
     #endregion
+    
     
     #region Task 7
     Console.WriteLine("Enter number: ");
