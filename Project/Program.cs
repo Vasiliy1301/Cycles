@@ -107,4 +107,35 @@ public class Program
     else
     Console.WriteLine("Enter a number from 1 to 10");
     #endregion
+
+    
+    #region Task 8
+    Console.Write("Enter and check if the number is prime or complex (0 exit from the program).\nNumber: ");
+    int Number = Convert.ToInt32(Console.ReadLine());
+
+    for (;;)
+    {
+    if (Number == 0)
+    {
+        Console.Write("You have completed the program.");
+        break;
+    }
+
+    int NumberDivisors = 0;
+
+    for (int i = 1; i <= Number; i++)
+    {
+        if (Number % i == 0)
+        {
+            NumberDivisors++;
+        }
+    }
+
+    Console.Write(NumberDivisors == 2
+        ? $"The number {Number} is prime, try again.\nNumber: "
+        : $"The number {Number} is composite, try again.\nNumber: ");
+
+    Number = Convert.ToInt32(Console.ReadLine());
+    }
+#endregion
 }
