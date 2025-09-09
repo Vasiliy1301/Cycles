@@ -32,6 +32,58 @@ public class Program
         Console.WriteLine(new string('*', i));
     }
     #endregion
+
+
+    #region Task 4
+    Console.WriteLine("Create a password: ");
+
+    string Password = Console.ReadLine();
+    bool PasswordCorrect = false;
+
+    while (!PasswordCorrect)
+    {
+        if (Password.Length >= 8)
+        {
+            bool HasDigit = false;
+            bool HasSpecial = false;
+
+            for (int i = 0; i < Password.Length; i++)
+            {
+                if (char.IsDigit(Password[i]))
+                {
+                    HasDigit = true;
+                    break;
+                }
+            }
+
+            for (int i = 0; i < Password.Length; i++)
+            {
+                if (!char.IsLetterOrDigit(Password[i]))
+                {
+                    HasSpecial = true;
+                    break;
+                }
+            }
+
+            if (HasDigit && HasSpecial)
+            {
+                Console.WriteLine("Your password has been accepted!");
+                PasswordCorrect = true;
+            }
+            else
+            {
+                Console.Write("You entered an incorrect password " +
+                              "(password must contain at least 1 number and at least 1 special character).\nTry again: ");
+                Password = Console.ReadLine();
+            }
+        }
+        else
+        {
+            Console.Write("Enter a password consisting of 8 or more characters.\nTry again: ");
+            Password = Console.ReadLine();
+        }
+    }
+    #endregion
     
     
     #region Task 5
@@ -41,7 +93,7 @@ public class Program
     Console.Write("Enter how many times to calculate the Fibonacci number: ");
     int Number = Convert.ToInt32(Console.ReadLine());
 
-        if (Number > 1 && Number <= 47)
+    if (Number > 1 && Number <= 47)
     {
         Console.Write($"{FibonacciNumber1} {FibonacciNumber2} ");
     
@@ -96,7 +148,7 @@ public class Program
     int Number = Convert.ToInt32(Console.ReadLine());
     int Result = 0;
 
-        if (Number >= 1 && Number <= 10)
+    if (Number >= 1 && Number <= 10)
     {
         for (int i = 1; i <= 10; i++)
         {
@@ -105,7 +157,7 @@ public class Program
         }
     }
     else
-    Console.WriteLine("Enter a number from 1 to 10");
+        Console.WriteLine("Enter a number from 1 to 10");
     #endregion
 
     
@@ -115,27 +167,27 @@ public class Program
 
     for (;;)
     {
-    if (Number == 0)
-    {
-        Console.Write("You have completed the program.");
-        break;
-    }
-
-    int NumberDivisors = 0;
-
-    for (int i = 1; i <= Number; i++)
-    {
-        if (Number % i == 0)
+        if (Number == 0)
         {
-            NumberDivisors++;
+            Console.Write("You have completed the program.");
+            break;
         }
-    }
 
-    Console.Write(NumberDivisors == 2
-        ? $"The number {Number} is prime, try again.\nNumber: "
-        : $"The number {Number} is composite, try again.\nNumber: ");
+        int NumberDivisors = 0;
 
-    Number = Convert.ToInt32(Console.ReadLine());
+        for (int i = 1; i <= Number; i++)
+        {
+            if (Number % i == 0)
+                {
+                    NumberDivisors++;
+                }
+        }
+
+        Console.Write(NumberDivisors == 2
+            ? $"The number {Number} is prime, try again.\nNumber: "
+            : $"The number {Number} is composite, try again.\nNumber: ");
+
+        Number = Convert.ToInt32(Console.ReadLine());
     }
-#endregion
+    #endregion
 }
