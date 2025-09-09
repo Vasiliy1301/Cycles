@@ -3,6 +3,7 @@ namespace Cycles;
 public class Program
 {
     #region Task 1
+    
     Console.WriteLine("Enter the number of employees: ");
     int NumberOfEmployees = Convert.ToInt32(Console.ReadLine());
 
@@ -18,10 +19,12 @@ public class Program
 
     Console.WriteLine($"The total salary is {TotalSalary} dollars, the total number of employees is {NumberOfEmployees}," +
                       $"the average salary per employee is {TotalSalary / NumberOfEmployees} dollars.");
+        
     #endregion
     
     
     #region Task 2
+    
     Console.WriteLine("Enter the number of stars: ");
     int Stars = Convert.ToInt32(Console.ReadLine());
 
@@ -31,13 +34,23 @@ public class Program
     {
         Console.WriteLine(new string('*', i));
     }
+        
+    #endregion
+
+
+    #region Task 3
+    
+    
+    
     #endregion
 
 
     #region Task 4
+    
     Console.WriteLine("Create a password: ");
 
     string Password = Console.ReadLine();
+    
     bool PasswordCorrect = false;
 
     while (!PasswordCorrect)
@@ -83,10 +96,12 @@ public class Program
             Password = Console.ReadLine();
         }
     }
+        
     #endregion
     
     
     #region Task 5
+    
     int FibonacciNumber1 = 0;
     int FibonacciNumber2 = 1;
 
@@ -111,10 +126,12 @@ public class Program
     Console.WriteLine(FibonacciNumber1);
     else
     Console.WriteLine("Enter a valid value between 1 and 47");
+    
     #endregion
     
     
     #region Task 6
+    
     int Hours = 0;
     int TotalHours = 0;
     double StartingPrice = 10;
@@ -140,10 +157,12 @@ public class Program
     }
 
     Console.Write($"\nYou worked {TotalHours} hours and earned {TotalAmount}$ today.");
+    
     #endregion
     
     
     #region Task 7
+    
     Console.WriteLine("Enter number: ");
     int Number = Convert.ToInt32(Console.ReadLine());
     int Result = 0;
@@ -158,10 +177,12 @@ public class Program
     }
     else
         Console.WriteLine("Enter a number from 1 to 10");
+    
     #endregion
 
     
     #region Task 8
+    
     Console.Write("Enter and check if the number is prime or complex (0 exit from the program).\nNumber: ");
     int Number = Convert.ToInt32(Console.ReadLine());
 
@@ -189,5 +210,6 @@ public class Program
 
         Number = Convert.ToInt32(Console.ReadLine());
     }
+
     #endregion
 }
