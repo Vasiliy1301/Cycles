@@ -4,21 +4,21 @@ public class Program
 {
     #region Task 1
     
-    Console.WriteLine("Enter the number of employees: ");
-    int NumberOfEmployees = Convert.ToInt32(Console.ReadLine());
+    Console.Write("Enter the number of employees: ");
+    int numberOfEmployees = Convert.ToInt32(Console.ReadLine());
 
-    double AmountOfSalary = 0;
-    double TotalSalary = 0;
+    double totalSalary = 0;
 
-    for (int i = 1; i <= NumberOfEmployees; i++)
+    for (int i = 1; i <= numberOfEmployees; i++)
     {
         Console.Write($"Enter the salary amount for the {i} employee in dollars: ");
-        AmountOfSalary = Convert.ToDouble(Console.ReadLine());
-        TotalSalary += AmountOfSalary;
+        double amountOfSalary = Convert.ToDouble(Console.ReadLine());
+        
+        totalSalary += amountOfSalary;
     }
 
-    Console.WriteLine($"The total salary is {TotalSalary} dollars, the total number of employees is {NumberOfEmployees}," +
-                      $"the average salary per employee is {TotalSalary / NumberOfEmployees} dollars.");
+    Console.WriteLine($"The total salary is {totalSalary} dollars, the total number of employees is {numberOfEmployees}," +
+                      $" the average salary per employee is {totalSalary / numberOfEmployees} dollars.");
         
     #endregion
     
@@ -26,11 +26,11 @@ public class Program
     #region Task 2
     
     Console.WriteLine("Enter the number of stars: ");
-    int Stars = Convert.ToInt32(Console.ReadLine());
+    int stars = Convert.ToInt32(Console.ReadLine());
 
     Console.WriteLine("Result: ");
 
-    for (int i = 1; i <= Stars; i++)
+    for (int i = 0; i <= stars; i++)
     {
         Console.WriteLine(new string('*', i));
     }
@@ -48,52 +48,53 @@ public class Program
     #region Task 4
     
     Console.WriteLine("Create a password: ");
+    string password = Console.ReadLine();
 
-    string Password = Console.ReadLine();
-    
-    bool PasswordCorrect = false;
+    int minimumPasswordLength = 8;
 
-    while (!PasswordCorrect)
+    bool passwordCorrect = false;
+
+    while (!passwordCorrect)
     {
-        if (Password.Length >= 8)
+        if (password.Length >= minimumPasswordLength)
         {
-            bool HasDigit = false;
-            bool HasSpecial = false;
+            bool hasDigit = false;
+            bool hasSpecial = false;
 
-            for (int i = 0; i < Password.Length; i++)
+            for (int i = 0; i < password.Length; i++)
             {
-                if (char.IsDigit(Password[i]))
+                if (char.IsDigit(password[i]))
                 {
-                    HasDigit = true;
+                    hasDigit = true;
                     break;
                 }
             }
 
-            for (int i = 0; i < Password.Length; i++)
+            for (int i = 0; i < password.Length; i++)
             {
-                if (!char.IsLetterOrDigit(Password[i]))
+                if (!char.IsLetterOrDigit(password[i]))
                 {
-                    HasSpecial = true;
+                    hasSpecial = true;
                     break;
                 }
             }
 
-            if (HasDigit && HasSpecial)
+            if (hasDigit && hasSpecial)
             {
                 Console.WriteLine("Your password has been accepted!");
-                PasswordCorrect = true;
+                passwordCorrect = true;
             }
             else
             {
                 Console.Write("You entered an incorrect password " +
                               "(password must contain at least 1 number and at least 1 special character).\nTry again: ");
-                Password = Console.ReadLine();
+                password = Console.ReadLine();
             }
         }
         else
         {
             Console.Write("Enter a password consisting of 8 or more characters.\nTry again: ");
-            Password = Console.ReadLine();
+            password = Console.ReadLine();
         }
     }
         
@@ -102,81 +103,97 @@ public class Program
     
     #region Task 5
     
-    int FibonacciNumber1 = 0;
-    int FibonacciNumber2 = 1;
+    int fibonacciNumber1 = 0;
+    int fibonacciNumber2 = 1;
 
     Console.Write("Enter how many times to calculate the Fibonacci number: ");
-    int Number = Convert.ToInt32(Console.ReadLine());
+    int number = Convert.ToInt32(Console.ReadLine());
 
-    if (Number > 1 && Number <= 47)
+    int minimumInputDigit = 1;
+    int maximumInputDigit = 47;
+    int startOfCounting = 2;
+
+    if (number > minimumInputDigit && number <= maximumInputDigit)
     {
-        Console.Write($"{FibonacciNumber1} {FibonacciNumber2} ");
+        Console.Write($"{fibonacciNumber1} {fibonacciNumber2} ");
     
-        for (int i = 2; i < Number; i++)
+        for (int i = startOfCounting; i < number; i++)
         {
-            int Next = FibonacciNumber1 + FibonacciNumber2;
+            int next = fibonacciNumber1 + fibonacciNumber2;
         
-            Console.Write($"{Next} ");
-
-            FibonacciNumber1 = FibonacciNumber2;
-            FibonacciNumber2 = Next;
+            fibonacciNumber1 = fibonacciNumber2;
+            fibonacciNumber2 = next;
+        
+            Console.Write($"{next} ");
         }
     }
-    else if (Number == 1)
-    Console.WriteLine(FibonacciNumber1);
+    else if (number == 1)
+        Console.WriteLine(fibonacciNumber1);
     else
-    Console.WriteLine("Enter a valid value between 1 and 47");
+        Console.WriteLine("Enter a valid value between 1 and 47");
     
     #endregion
     
     
     #region Task 6
     
-    int Hours = 0;
-    int TotalHours = 0;
-    double StartingPrice = 10;
-    double TotalAmount = 0;
+    int totalHours = 0;
+    int maximumNumberOfRequests = 3;
+    double startingPrice = 10;
+    double totalAmount = 0;
 
-    Console.Write($"You start working, today your starting rate per hour of work is {StartingPrice}$, " +
-    $"for each subsequent hour you will receive one dollar more than the starting rate.\n");
+    Console.Write($"You start working, today your starting rate per hour of work is {startingPrice}$, " +
+                  $"for each subsequent hour you will receive one dollar more than the starting rate.\n");
 
-    for (int i = 0; i < 3; i++)
+    for (int i = 0; i < maximumNumberOfRequests; i++)
     {
-        Console.WriteLine("Enter how many hours you worked today: ");
-        Hours = Convert.ToInt32(Console.ReadLine());
+        Console.Write("Enter how many hours you worked today: ");
+        int hours = Convert.ToInt32(Console.ReadLine());
     
-        for (int j = 0; j < Hours; j++)
+        for (int j = 0; j < hours; j++)
         {
-            TotalAmount += StartingPrice;
-            StartingPrice++;
+            totalAmount += startingPrice;
+            startingPrice++;
         }
     
-        TotalHours += Hours;
+        totalHours += hours;
 
-        Console.Write($"You have worked {Hours} hours today and earned {TotalAmount}$, your bet is now {StartingPrice}$.\n");
+        Console.Write($"You have worked {hours} hours today and earned {totalAmount}$, your bet is now {startingPrice}$.\n");
     }
 
-    Console.Write($"\nYou worked {TotalHours} hours and earned {TotalAmount}$ today.");
+    Console.Write($"\nYou worked {totalHours} hours and earned {totalAmount}$ today.");
     
     #endregion
     
     
     #region Task 7
     
-    Console.WriteLine("Enter number: ");
-    int Number = Convert.ToInt32(Console.ReadLine());
-    int Result = 0;
+    Console.Write("Enter the number to multiply: ");
+    int number = Convert.ToInt32(Console.ReadLine());
 
-    if (Number >= 1 && Number <= 10)
+    const int MINIMUM_INPUT = 1;
+    const int MAXIMUM_INPUT = 10;
+    const int MINIMAL_MULTIPLICATION = 1;
+    const int MAXIMUM_MULTIPLICATION = 10;
+
+    bool result = false;
+
+    while (!result)
     {
-        for (int i = 1; i <= 10; i++)
+        if (number >= MINIMUM_INPUT && number <= MAXIMUM_INPUT)
         {
-            Result = Number * i;
-            Console.WriteLine($"{Number} * {i} = {Number * i}");
+            for (int i = MINIMAL_MULTIPLICATION; i <= MAXIMUM_MULTIPLICATION; i++)
+            {
+                Console.WriteLine($"{number} * {i} = {number * i}");
+                result = true;
+            }
+        }
+        else
+        {
+            Console.Write("Enter a number from 1 to 10. Try again.\nNumber: ");
+            number = Convert.ToInt32(Console.ReadLine());
         }
     }
-    else
-        Console.WriteLine("Enter a number from 1 to 10");
     
     #endregion
 
@@ -184,31 +201,34 @@ public class Program
     #region Task 8
     
     Console.Write("Enter and check if the number is prime or complex (0 exit from the program).\nNumber: ");
-    int Number = Convert.ToInt32(Console.ReadLine());
+    int number = Convert.ToInt32(Console.ReadLine());
 
-    for (;;)
+    while (true)
     {
-        if (Number == 0)
+        const int MAXIMUM_NUMBER_OF_DIVISORS = 2;
+        const int STARTING_COUNTDOWN = 1;
+    
+        int numberOfDivisors = 0;
+    
+        if (number == 0)
         {
             Console.Write("You have completed the program.");
             break;
         }
-
-        int NumberDivisors = 0;
-
-        for (int i = 1; i <= Number; i++)
+    
+        for (int i = STARTING_COUNTDOWN; i <= number; i++)
         {
-            if (Number % i == 0)
-                {
-                    NumberDivisors++;
-                }
+            if (number % i == 0)
+            {
+                numberOfDivisors++;
+            }
         }
 
-        Console.Write(NumberDivisors == 2
-            ? $"The number {Number} is prime, try again.\nNumber: "
-            : $"The number {Number} is composite, try again.\nNumber: ");
+        Console.Write(numberOfDivisors == MAXIMUM_NUMBER_OF_DIVISORS
+            ? $"The number {number} is prime, try again.\nNumber: "
+            : $"The number {number} is composite, try again.\nNumber: ");
 
-        Number = Convert.ToInt32(Console.ReadLine());
+        number = Convert.ToInt32(Console.ReadLine());
     }
 
     #endregion
