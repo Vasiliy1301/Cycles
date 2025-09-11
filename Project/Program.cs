@@ -40,7 +40,25 @@ public class Program
 
     #region Task 3
     
-    
+    Console.Write("Enter up to what number to output prime numbers: ");
+    int number = Convert.ToInt32(Console.ReadLine());
+
+    for (int i = 2; i <= number; i++)
+    {
+        bool isPrime = true;
+
+        for (int j = 2; j < i; j++)
+        {
+            if (i % j == 0)
+            {
+                isPrime = false;
+                break;
+            }
+        }
+
+        if (isPrime)
+            Console.Write(i + " ");
+    }
     
     #endregion
 
